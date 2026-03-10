@@ -1,5 +1,6 @@
 from app.contracts import AiProvider
 from openai import AsyncOpenAI
+import app.tools as tls
 
 
 class OpenRouter(AiProvider):
@@ -33,7 +34,7 @@ class OpenRouter(AiProvider):
             messages = [messages]
 
         response = await self._client.chat.completions.create(
-            model='deepseek/deepseek-r1-0528:free',
+            model=tls.get_env('AI_MODEL'),
             messages=messages,
             temperature=0.5,
         )
