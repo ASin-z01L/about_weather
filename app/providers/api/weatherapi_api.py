@@ -2,6 +2,8 @@ import httpx
 from app.contracts import WeatherProvider
 from datetime import date, timedelta
 import app.tools as tls
+from app.schemas.api_schemas import WeatherRequest
+from app.schemas.api_schemas import WeatherResponse
 
 
 class Weather(WeatherProvider):
@@ -106,12 +108,12 @@ class Weather(WeatherProvider):
 
         return result
 
-    async def get_weather(self, items: list[dict]) -> list:
+    async def get_weather(self, items: list[WeatherRequest]) -> list[WeatherResponse]:
         """
         Get weather for location
 
         :param items:
-        :return: list
+        :return: list[WeatherResponse]
         """
 
         result = []
@@ -119,27 +121,27 @@ class Weather(WeatherProvider):
         for item in items:
             dates = {}
 
-            for str_date in item['dates']:
+            for str_date in item.dates:
 
                 obj_date = tls.str_to_date(str_date)
 
                 if obj_date > date.today():
-                    dates.update(await self._forecast_weather(item['city'], item['dates']))
+                    dates.update(await self._forecast_weather(item.city, item.dates))
                     break
 
-                elif obj_date == date.today() and str_date == item['dates'][-1]:
-                    dates[str_date] = await self._current_weather(item['city'])
+                elif obj_date == date.today() and str_date == item.dates[-1]:
+                    dates[str_date] = await self._current_weather(item.city)
 
                 elif obj_date < date.today():
                     if obj_date >= (date.today() - timedelta(days=Weather._HISTORY_MAX_COUNT_DAYS)):
-                        dates[str_date] = await self._history_weather(item['city'], str_date)
+                        dates[str_date] = await self._history_weather(item.city, str_date)
                     else:
                         dates[str_date] = None
 
-            result.append({
-                'city': item['city'],
-                'dates': dates
-            })
+            result.append(WeatherResponse(
+                city=item.city,
+                dates=dates
+            ))
 
         return result
 

@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
+from app.schemas.api_schemas import WeatherRequest
+from app.schemas.api_schemas import WeatherResponse
 
 
 class AiProvider(ABC):
@@ -14,7 +16,7 @@ class WeatherProvider(ABC):
     __slots__ = ()
 
     @abstractmethod
-    async def get_weather(self, items: list[dict]) -> list:
+    async def get_weather(self, items: list[WeatherRequest]) -> list[WeatherResponse]:
         ...
 
 
