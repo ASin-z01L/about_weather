@@ -22,7 +22,7 @@ class OpenRouter(AiProvider):
     def __repr__(self):
         return f'{__class__.__name__}({self.__str__()})'
 
-    async def send_prompt(self, messages: dict | list[dict]) -> str:
+    async def send_prompt(self, messages: dict | list[dict], *args, **kwargs) -> str:
         """
         Send prompt via the AI API
 

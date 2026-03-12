@@ -108,7 +108,7 @@ class Weather(WeatherProvider):
 
         return result
 
-    async def get_weather(self, items: list[WeatherRequest]) -> list[WeatherResponse]:
+    async def get_weather(self, items: list[WeatherRequest], *args, **kwargs) -> list[WeatherResponse]:
         """
         Get weather for location
 

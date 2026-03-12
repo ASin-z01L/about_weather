@@ -8,7 +8,7 @@ class AiProvider(ABC):
     __slots__ = ()
 
     @abstractmethod
-    async def send_prompt(self, messages: dict | list[dict]) -> str:
+    async def send_prompt(self, messages: dict | list[dict], *args, **kwargs) -> str:
         ...
 
 
@@ -16,7 +16,7 @@ class WeatherProvider(ABC):
     __slots__ = ()
 
     @abstractmethod
-    async def get_weather(self, items: list[WeatherRequest]) -> list[WeatherResponse]:
+    async def get_weather(self, items: list[WeatherRequest], *args, **kwargs) -> list[WeatherResponse]:
         ...
 
 
