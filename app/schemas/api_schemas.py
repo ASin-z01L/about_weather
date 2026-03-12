@@ -28,4 +28,4 @@ class WeatherRequest(BaseModel):
 
 class WeatherResponse(BaseModel):
     city: str
-    dates: dict[str, dict]
+    dates: dict[str, dict | None]
