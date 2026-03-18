@@ -47,9 +47,10 @@ class Prompt:
         :return: dict
         """
         prompt_data = cls._load_data()
+        prompt_replace = prompt_data[key].copy()
 
-        prompt_data[key]['content'] = cls._token_replace(
-            prompt_data[key]['content'], **kwargs
+        prompt_replace['content'] = cls._token_replace(
+            prompt_replace['content'], **kwargs
         )
 
-        return prompt_data[key]
+        return prompt_replace
