@@ -61,7 +61,7 @@ def trim_json(str_json: str) -> str:
     begin_list = str_json.find('[')
     begin_obj = str_json.find('{')
 
-    if begin_list < begin_obj:
+    if 0 <= begin_list < begin_obj:
         end = str_json.rfind(']')
         return str_json[begin_list:end + 1]
     else:
