@@ -22,7 +22,7 @@ class SessionTTLCache(SessionProvider):
 
     def __init__(self, session_id: str, storage: MutableMapping = None):
         self.session_id = session_id
-        self._cache = storage if storage else StorageManager.get_storage()
+        self._cache = storage if storage is not None else StorageManager.get_storage()
         self._cache.setdefault(self.session_id, {})
 
     def __str__(self) -> str:
