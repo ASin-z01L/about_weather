@@ -1,0 +1,11 @@
+/.git/
+/.idea/
+/.venv/
+/tests/
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+/.env
+/.gitignore
+/.dockerignore
+/app.log
