@@ -13,7 +13,7 @@ import app.tools as tls
 
 
 def get_ai_provider() -> AiProvider:
-    return OpenRouter(tls.get_env('OPENROUTER_APY_KEY'))
+    return OpenRouter(tls.get_env('AI_API_KEY'))
 
 
 def get_weather_provider() -> WeatherProvider:
