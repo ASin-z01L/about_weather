@@ -60,41 +60,41 @@ sudo docker run -it -d -p 8000:8000 \
 - The project is built on Dependency Inversion Principle (DIP) and Strategy pattern, allowing easy replacement of external service implementations without changing business logic. By using abstractions, you can easily swap implementations for external services:
 
 **AI Provider, (current implementation):**
-- • OpenAI-compatible API
+- OpenAI-compatible API
 
 **Alternatives:**
-- • Anthropic Claude
-- • YandexGPT
-- • GigaChat
-- • Local models (Ollama, LM Studio)
-- • Azure OpenAI
+- Anthropic Claude
+- YandexGPT
+- GigaChat
+- Local models (Ollama, LM Studio)
+- Azure OpenAI
 
 **Weather Service, (current implementation):**
-- • WeatherAPI.com
+- WeatherAPI.com
 
 **Alternatives:**
-- • OpenWeatherMap
-- • AccuWeather
-- • Tomorrow.io
-- • Yandex Weather
-- • Custom weather service
+- OpenWeatherMap
+- AccuWeather
+- Tomorrow.io
+- Yandex Weather
+- Custom weather service
 
 **Session Storage, (current implementation):**
-- • In-memory (TTL)
+- In-memory (TTL)
 
 **Alternatives:**
-- • Redis
-- • Memcached
-- • PostgreSQL
-- • MongoDB
-- • File system
+- Redis
+- Memcached
+- PostgreSQL
+- MongoDB
+- File system
 
 This architecture allows changing any external dependencies without code modification, making the project:
 
-- • More flexible for different environments
-- • Testable (mocks for unit tests)
-- • Scalable (horizontal scaling with Redis)
-- • Cost-effective (can switch between paid and free APIs)
+- More flexible for different environments
+- Testable (mocks for unit tests)
+- Scalable (horizontal scaling with Redis)
+- Cost-effective (can switch between paid and free APIs)
 
 ## Technologies
 - Backend: **Python 3.10+, FastAPI**
@@ -106,17 +106,17 @@ This architecture allows changing any external dependencies without code modific
 - Container: **Docker**
 
 ## TODO / Roadmap
-- • Add Redis support for distributed session storage
-- • Implement weather data caching
-- • Expand list of weather providers
-- • Complete full localization
-- • Externalize current implementation selection for external services to configuration
+- Add Redis support for distributed session storage
+- Implement weather data caching
+- Expand list of weather providers
+- Complete full localization
+- Externalize current implementation selection for external services to configuration
 
 ## License
 MIT
 
 
-===============================================================================================
+=======================
 
 
 ## ИИ Ассистент прогноза погоды
@@ -184,41 +184,41 @@ sudo docker run -it -d -p 8000:8000 \
 - Проект построен на принципах инверсии зависимостей (DIP) и стратегии, что позволяет легко заменять реализации внешних сервисов без изменения бизнес-логики. Благодаря использованию абстракций, вы можете легко заменить имплементации для внешних сервисов:
 
 **AI провайдер, (текущая реализация):**
-- • OpenAI-совместимый API
+- OpenAI-совместимый API
 
 **Альтернативы:**
-- • Anthropic Claude
-- • YandexGPT
-- • GigaChat
-- • Локальные модели (Ollama, LM Studio)
-- • Azure OpenAI
+- Anthropic Claude
+- YandexGPT
+- GigaChat
+- Локальные модели (Ollama, LM Studio)
+- Azure OpenAI
 
 **Сервис погоды, (текущая реализация):**
-- • WeatherAPI.com
+- WeatherAPI.com
 
 **Альтернативы:**
-- • OpenWeatherMap
-- • AccuWeather
-- • Tomorrow.io
-- • Яндекс Погода
-- • Собственный метео-сервис
+- OpenWeatherMap
+- AccuWeather
+- Tomorrow.io
+- Яндекс Погода
+- Собственный метео-сервис
 
 **Хранилище сессий, (текущая реализация):**
-- • In-memory (TTL)	
+- In-memory (TTL)	
 
 **Альтернативы:**
-- • Redis
-- • Memcached
-- • PostgreSQL
-- • MongoDB
-- • Файловая система
+- Redis
+- Memcached
+- PostgreSQL
+- MongoDB
+- Файловая система
 
 Эта архитектура позволяет менять любые внешние зависимости без модификации кода, что делает проект:
 
-- • Более гибким для разных окружений
-- • Тестируемым (моки для юнит-тестов)
-- • Масштабируемым (горизонтальное масштабирование с Redis)
-- • Экономичным (можно переключаться между платными и бесплатными API)
+- Более гибким для разных окружений
+- Тестируемым (моки для юнит-тестов)
+- Масштабируемым (горизонтальное масштабирование с Redis)
+- Экономичным (можно переключаться между платными и бесплатными API)
 
 
 ## Технологии
@@ -232,11 +232,11 @@ sudo docker run -it -d -p 8000:8000 \
 
 
 ## TODO / Планы по развитию
-- • Добавить поддержку Redis для распределенного хранения сессий
-- • Реализовать кэширование погодных данных
-- • Расширить список провайдеров погоды
-- • Сделать полную локализацию
-- • Вынести выбор текущей имплементации внешнего сервиса в настройки
+- Добавить поддержку Redis для распределенного хранения сессий
+- Реализовать кэширование погодных данных
+- Расширить список провайдеров погоды
+- Сделать полную локализацию
+- Вынести выбор текущей имплементации внешнего сервиса в настройки
 
 
 ## Лицензия
